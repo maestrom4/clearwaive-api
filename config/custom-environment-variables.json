@@ -1,0 +1,6 @@
+{
+    "jwtPrivateKey": "cwJwtPrivateKey",
+    "db": "cw_db",
+    "emailpwd": "email_pwd"
+}
+ 
