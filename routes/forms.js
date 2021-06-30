@@ -15,13 +15,13 @@ const err404Msg = 'The course with the given ID was not found!';
 //     return await Customers.findOne({_id: new ObjectID(id)}) 
 // }
   
-router.get('/', async(req, res) => {
+router.get('/', auth, async(req, res) => {
     const result = await Form.find();
     res.send(result);
 });
 
 // Get by ID
-router.get('/:id', async(req, res) => {
+router.get('/:id', auth, async(req, res) => {
     const form = await Form.findOne({_id: new ObjectID(req.params.id)}, console.log)  // ok
     if (!form) return res.status(stat404).send(err404Msg);
     res.send(form);

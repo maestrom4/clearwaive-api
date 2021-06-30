@@ -28,7 +28,7 @@ const createUser = async(user, res) => {
     res.header('x-auth-token', token).send(_.pick(newUser, ["_id", "name", "email"]));
 }
 
-router.get('/', async(req, res) => {
+router.get('/', auth, async(req, res) => {
     try {
         const userList = await getUsers();
         res.send(userList);
