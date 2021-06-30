@@ -8,10 +8,14 @@ const uploads = require('../routes/uploads');
 const users = require('../routes/users');
 const auth = require('../routes/auth');
 const home = require('../routes/home');
-
+const cors = require('cors');
 
 module.exports = function(app) {
     app.use(express.json());
+    app.use(cors({
+        origin: 'http://localhost:86/'
+    }));
+    
     app.use(fileUpload({ safeFileNames: true, preserveExtension: true }));
 
     app.use('/api/mail', mail.router); // 
