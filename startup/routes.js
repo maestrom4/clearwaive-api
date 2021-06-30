@@ -12,10 +12,11 @@ const cors = require('cors');
 
 module.exports = function(app) {
     app.use(express.json());
-    app.use(cors({
-        origin: 'http://localhost:86/'
-    }));
-    
+    // app.use(cors({
+    //     origin: 'http://localhost:86'
+    // }));
+    app.use(cors()));
+
     app.use(fileUpload({ safeFileNames: true, preserveExtension: true }));
 
     app.use('/api/mail', mail.router); // 
